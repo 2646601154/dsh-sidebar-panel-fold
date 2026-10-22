@@ -1,0 +1,50 @@
+{
+  "name": "dsh-sidebar-panel-fold",
+  "version": "1.0.0",
+  "description": "Collapsible \"menu entries\" group header for the DeepSeek Harness Web sidebar: folds Plugins, Plugin Market, Schedules, Context, SSH and MCP into one clickable row.",
+  "keywords": [
+    "dsh",
+    "dsh-plugin",
+    "deepseek-harness",
+    "sidebar",
+    "cordis",
+    "plugin"
+  ],
+  "license": "MIT",
+  "type": "module",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/2646601154/dsh-sidebar-panel-fold.git"
+  },
+  "homepage": "https://github.com/2646601154/dsh-sidebar-panel-fold#readme",
+  "bugs": {
+    "url": "https://github.com/2646601154/dsh-sidebar-panel-fold/issues"
+  },
+  "exports": {
+    ".": "./index.js",
+    "./client": "./client.js",
+    "./locale/*.json": "./locale/*.json",
+    "./icon": "./icon.svg"
+  },
+  "files": [
+    "index.js",
+    "client.js",
+    "cordis.patch.yml",
+    "locale/*.json",
+    "icon.svg",
+    "README.md",
+    "LICENSE"
+  ],
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    },
+    "client": {
+      "platform": "web",
+      "immediately": true,
+      "inject": [
+        "@deepseek-ai/dsh-client-ui-sidebar"
+      ]
+    }
+  }
+}

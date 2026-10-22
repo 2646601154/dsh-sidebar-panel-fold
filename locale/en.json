@@ -1,0 +1,6 @@
+{
+  "meta": {
+    "title": "Sidebar Menu Fold",
+    "description": "Adds a \"Menu entries\" header row above the sidebar's global panel list, so Plugins, Plugin Market, Schedules, Context, SSH and MCP collapse into one clickable group."
+  }
+}
