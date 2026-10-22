@@ -22,31 +22,35 @@ The fold state is remembered in `localStorage`, so it survives a reload.
 
 ## Install
 
-### 1. Clone it somewhere stable
+### Option A — straight from GitHub (needs `git` on the machine)
+
+Open the Harness Web UI → **Plugins** panel → *install bundle* and use
+
+```
+github:2646601154/dsh-sidebar-panel-fold
+```
+
+or from an agent session through the plugin-manager tool:
+
+```json
+{ "action": "install_bundle", "target": "github:2646601154/dsh-sidebar-panel-fold" }
+```
+
+The bundle is enabled as soon as it installs. If the sidebar does not change immediately, reload the window (`Ctrl+R` / `Cmd+R`).
+
+### Option B — clone, then install the directory
 
 ```bash
 git clone https://github.com/2646601154/dsh-sidebar-panel-fold.git
 ```
 
-### 2. Install the directory as a bundle
-
-Open the Harness Web UI → **Plugins** panel → *install bundle*, and give it the absolute path of the cloned directory, e.g.
-
-```
-/Users/you/code/dsh-sidebar-panel-fold
-```
-
-or on Windows `D:\code\dsh-sidebar-panel-fold`.
-
-From an agent session you can do the same through the plugin-manager tool:
+then point *install bundle* at the absolute path of the clone:
 
 ```json
 { "action": "install_bundle", "target": "D:\\code\\dsh-sidebar-panel-fold" }
 ```
 
-The bundle is enabled on install. If the sidebar does not change immediately, reload the window (`Ctrl+R` / `Cmd+R`).
-
-If your plugin manager accepts npm-style specs, `github:2646601154/dsh-sidebar-panel-fold` works as `target` too — it resolves through pnpm, so it needs git available on the machine.
+This is also what you want if you plan to edit the plugin — a directory install is linked, so changes take effect without reinstalling.
 
 ## How it works (and why it is done this way)
 
@@ -84,7 +88,7 @@ Written against `@deepseek-ai/dsh-client-ui-sidebar` as shipped in DeepSeek Harn
 
 在侧边栏面板列表最上方加一行「功能入口」标题行，点一下就把 插件 / 插件市场 / 自动化任务 / 上下文洞察 / SSH / MCP 连接器 整组收起，再点展开。折叠状态记在 `localStorage`，刷新后保持。
 
-安装方式同上：把仓库克隆到本地，用插件面板或 `install_bundle` 指向该目录（也支持 `github:2646601154/dsh-sidebar-panel-fold` 这种写法，前提是机器上有 git）。安装后若侧栏没变化，按 `Ctrl+R` 刷新窗口。
+安装：在插件面板里用 `github:2646601154/dsh-sidebar-panel-fold` 直接装；或者把仓库克隆到本地后用 `install_bundle` 指向该目录（目录安装是软链，适合想改代码的人）。装完若侧栏没变化，按 `Ctrl+R` 刷新窗口。
 
 ## License
 
